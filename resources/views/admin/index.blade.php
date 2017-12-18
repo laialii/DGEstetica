@@ -10,7 +10,7 @@
         </div>
         <div class="mr-5">Novo artigo</div>
       </div>
-      <a class="card-footer text-white clearfix small z-1" href="{{action('AdminController@add')}}">
+      <a class="card-footer text-white clearfix small z-1" href="{{action('AdminController@create')}}">
         <span class="float-left">Adicionar</span>
         <span class="float-right">
           <i class="fa fa-angle-right"></i>

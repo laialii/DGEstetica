@@ -21,12 +21,21 @@ class AdminController extends Controller
 
   public function create()
   {
-    //
+    return view('admin\add');
   }
 
   public function store(Request $request)
   {
-    //
+   $publicacao = new Publicacao;
+$publicacao->titulo        = $request->titulo;
+$publicacao->conteudo = $request->conteudo;
+$publicacao->save();
+return redirect()->action('AdminController@index')->with('message', 'Product created successfully!');
+
+
+
+    Publicacao::create($request->all());
+    return redirect()->action('AdminController@index');
   }
 
   public function show($id)

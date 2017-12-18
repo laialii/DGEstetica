@@ -40,7 +40,7 @@
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="NovaPublicacao">
-          <a class="nav-link" href="{{action('AdminController@add')}}">
+          <a class="nav-link" href="{{action('AdminController@create')}}">
             <i class="fa fa-fw fa-font"></i>
             <span class="nav-link-text">Nova publicação</span>
           </a>
