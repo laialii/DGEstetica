@@ -35,7 +35,7 @@
       <div class="card-body py-2 small">
           <a class="mr-3 d-inline-block" href="{{action('AdminController@edit', $p->id)}}">
             <i class="fa fa-fw fa-pencil"></i> Editar</a>
-            <a class="d-inline-block" href="{{action('AdminController@delete', $p->id)}}">
+            <a class="d-inline-block" href="{{action('AdminController@destroy', $p->id)}}">
               <i class="fa fa-fw fa-trash"></i> Apagar</a>
             </div>
           </div>

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Request;
 use App\Publicacao;
 
 class AdminController extends Controller
@@ -26,16 +26,11 @@ class AdminController extends Controller
 
   public function store(Request $request)
   {
-   $publicacao = new Publicacao;
-$publicacao->titulo        = $request->titulo;
-$publicacao->conteudo = $request->conteudo;
-$publicacao->save();
-return redirect()->action('AdminController@index')->with('message', 'Product created successfully!');
-
-
-
-    Publicacao::create($request->all());
-    return redirect()->action('AdminController@index');
+    $publicacao = new Publicacao;
+    $publicacao->titulo        = $request->titulo;
+    $publicacao->conteudo = $request->conteudo;
+    $publicacao->save();
+    return redirect()->action('AdminController@index')->with('message');
   }
 
   public function show($id)
@@ -45,12 +40,20 @@ return redirect()->action('AdminController@index')->with('message', 'Product cre
 
   public function edit($id)
   {
-    //
+    $publicacao = Publicacao::find($id);
+    return view('admin/edit',['p'=>$publicacao]);
   }
 
   public function update(Request $request, $id)
   {
-    //
+
+      $novosdados = Request::all();
+      $publicacao = new Publicacao();
+      $publicacao = Publicacao::find($novosdados['id']);
+      $publicacao->titulo = $novosdados['titulo'];
+      $publicacao->conteudo = $novosdados['conteudo'];
+      $publicacao->save();
+      return redirect()->action('AdminController@index');
   }
 
   public function destroy($id)
