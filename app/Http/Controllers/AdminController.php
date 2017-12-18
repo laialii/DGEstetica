@@ -12,7 +12,7 @@ class AdminController extends Controller
   public function __construct()
   {
     $this->middleware('auth',
-    ['only' => ['index','create', 'store', 'show', 'edit', 'update', 'destroy']]);
+    ['only' => ['index','create', 'store', 'show', 'edit', 'update', 'destroy', 'empresaindex', 'editarempresa', 'atualizarempresa']]);
   }
 
   public function index()
