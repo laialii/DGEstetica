@@ -65,7 +65,7 @@ class AdminController extends Controller
   }
 
   public function empresaindex(){
-    return view('admin/empresa');
+    return view('admin/empresa', ['e'=> Empresa::find(1)]);
   }
   public function editarempresa($id){
     $empresa = Empresa::find($id);
@@ -80,6 +80,6 @@ class AdminController extends Controller
     $empresa->cidade = $novosdados['cidade'];
     $empresa->estado = $novosdados['estado'];
     $empresa->save();
-    return redirect()->action('AdminController@index');
+    return redirect()->action('AdminController@empresaindex');
   }
 }

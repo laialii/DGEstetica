@@ -2,9 +2,9 @@
 @section('content')
 <h1>Editar dados empresariais</h1>
 
-<form class="" action="{{action('AdminController@atualizarempresa', $e->id)}}" method="post">
+<form class="" action="{{action('AdminController@atualizarempresa', 1)}}" method="post">
   <input type="hidden"  name="_token" value="{{{ csrf_token() }}}" />
-  <input type="hidden"  name="id" value="{{$e->id}}" />
+  <input type="hidden"  name="id" value="1" />
   <div class="form-group col-lg-4">
     <label for="telefone">Telefone:</label>
     <input type="text" name="telefone" value="{{$e->telefone}}">
