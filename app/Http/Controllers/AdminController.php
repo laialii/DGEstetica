@@ -47,17 +47,19 @@ class AdminController extends Controller
   public function update(Request $request, $id)
   {
 
-      $novosdados = Request::all();
-      $publicacao = new Publicacao();
-      $publicacao = Publicacao::find($novosdados['id']);
-      $publicacao->titulo = $novosdados['titulo'];
-      $publicacao->conteudo = $novosdados['conteudo'];
-      $publicacao->save();
-      return redirect()->action('AdminController@index');
+    $novosdados = Request::all();
+    $publicacao = new Publicacao();
+    $publicacao = Publicacao::find($novosdados['id']);
+    $publicacao->titulo = $novosdados['titulo'];
+    $publicacao->conteudo = $novosdados['conteudo'];
+    $publicacao->save();
+    return redirect()->action('AdminController@index');
   }
 
   public function destroy($id)
   {
-    //
+    $publicacao = Publicacao::find($id);
+    $publicacao->delete();
+    return redirect()->action('AdminController@index');
   }
 }
