@@ -18,3 +18,5 @@ Route::post('/publicacao/novo', 'AdminController@store');
 Route::get('/publicacao/editar/{id}', 'AdminController@edit');
 Route::post('/publicacao/atualizar/{id}', 'AdminController@update');
 Route::get('/publicacao/deletar/{id}', 'AdminController@destroy');
+Route::get('/empresa/editar/{id}', 'AdminController@editarempresa');
+Route::post('/empresa/atualizar/{id}', 'AdminController@atualizarempresa');

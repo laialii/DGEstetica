@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Request;
 use App\Publicacao;
+use App\Empresa;
 
 class AdminController extends Controller
 {
@@ -60,6 +61,25 @@ class AdminController extends Controller
   {
     $publicacao = Publicacao::find($id);
     $publicacao->delete();
+    return redirect()->action('AdminController@index');
+  }
+
+  public function empresaindex(){
+    return view('admin/empresa');
+  }
+  public function editarempresa($id){
+    $empresa = Empresa::find($id);
+    return view('admin/editarempresa',['e'=>$empresa]);
+  }
+  public function atualizarempresa($id){
+    $novosdados = Request::all();
+    $empresa = new Empresa();
+    $empresa = Empresa::find($novosdados['id']);
+    $empresa->telefone = $novosdados['telefone'];
+    $empresa->endereco = $novosdados['endereco'];
+    $empresa->cidade = $novosdados['cidade'];
+    $empresa->estado = $novosdados['estado'];
+    $empresa->save();
     return redirect()->action('AdminController@index');
   }
 }

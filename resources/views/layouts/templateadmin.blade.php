@@ -46,7 +46,7 @@
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Blog">
-          <a class="nav-link" href="index.html">
+          <a class="nav-link" href="{{action('AdminController@editarempresa', 1)}}">
             <i class="fa fa-fw fa-cog"></i>
             <span class="nav-link-text">Dados empresariais</span>
           </a>
