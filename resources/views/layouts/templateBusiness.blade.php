@@ -63,6 +63,7 @@
       <div class="container">
         <p class="m-0"><img src="img/1 (2).jpg" alt="By: Big Source" width="100px"></p>
       </div>
+      <a href="{{action('AdminController@index')}}">Admin</a>
     </footer>
 
     <!-- Bootstrap core JavaScript -->

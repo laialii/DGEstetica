@@ -27,11 +27,15 @@ class AdminController extends Controller
 
   public function store(Request $request)
   {
-    $publicacao = new Publicacao;
-    $publicacao->titulo        = $request->titulo;
-    $publicacao->conteudo = $request->conteudo;
-    $publicacao->save();
-    return redirect()->action('AdminController@index')->with('message');
+    $publicacao = $this->validate(request(), [
+          'titulo' => 'required',
+          'conteudo' => 'required'
+        ]);
+
+        Publicacao::create($publicacao);
+
+        return redirect()->action('AdminController@index');
+
   }
 
   public function show($id)
